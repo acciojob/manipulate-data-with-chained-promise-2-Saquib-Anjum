@@ -13,14 +13,12 @@ p1.then((data) => {
     let res = data.filter((ele) => ele % 2 === 0);
     let str = res.join(",");
 
-    const ptag = document.createElement("p");
-    ptag.innerText = str;
-    output.append(ptag);
+    output.innerText =res
 
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(res);
-        }, 2000);
+        }, 3000);
     });
 
 }).then((data) => {
@@ -28,10 +26,10 @@ p1.then((data) => {
     let res = data.map((ele) => ele * 2);
     let str = res.join(",");
 
-    const ptag = document.createElement("p");
-    ptag.innerText = str;
-    output.append(ptag);
+    output.innerText=str
 
 }).catch((err) => {
     console.log(err);
 });
+
+
