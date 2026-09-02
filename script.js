@@ -12,9 +12,9 @@ p1
     .then((data) => {
         // First transformation: filter even numbers
         let res = data.filter((ele) => ele % 2 === 0);
-
+         let str =res.join(",")
         // Display after 1 second
-        output.innerText = res;
+        output.innerText = str;
 
         // Wait another 2 seconds
         return new Promise((resolve, reject) => {
@@ -26,10 +26,11 @@ p1
     .then((data) => {
         // Second transformation: multiply by 2
         let res = data.map((ele) => ele * 2);
-
+        let str = res.join(",")
         // Display final result
-        output.innerText = res;
+        output.innerText = str;
     })
     .catch((err) => {
         console.log(err);
     });
+
