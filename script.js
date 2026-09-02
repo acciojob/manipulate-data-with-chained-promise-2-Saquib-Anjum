@@ -8,28 +8,28 @@ const p1 = new Promise((resolve, reject) => {
     }, 1000);
 });
 
-p1.then((data) => {
+p1
+    .then((data) => {
+        // First transformation: filter even numbers
+        let res = data.filter((ele) => ele % 2 === 0);
 
-    let res = data.filter((ele) => ele % 2 === 0);
-    let str = res.join(",");
+        // Display after 1 second
+        output.innerText = res;
 
-    output.innerText =res
+        // Wait another 2 seconds
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve(res);
+            }, 2000);
+        });
+    })
+    .then((data) => {
+        // Second transformation: multiply by 2
+        let res = data.map((ele) => ele * 2);
 
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(res);
-        }, 3000);
+        // Display final result
+        output.innerText = res;
+    })
+    .catch((err) => {
+        console.log(err);
     });
-
-}).then((data) => {
-
-    let res = data.map((ele) => ele * 2);
-    let str = res.join(",");
-
-    output.innerText=str
-
-}).catch((err) => {
-    console.log(err);
-});
-
-
